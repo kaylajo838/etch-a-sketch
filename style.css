@@ -10,6 +10,14 @@
     background-color: grey;
 }
 
+.box-etch {
+    background-color: black;
+}
+
+button:hover {
+    background-color: rgb(104, 198, 230);
+}
+
 #grid {
     width: 510px;
     height: 510px;
@@ -17,6 +25,23 @@
     background-color: #FFF;
     box-shadow: 0 0 10px;
     border: 1px solid black;
+}
+
+input[type='color'] {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 80px;
+    border: none;
+}
+
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
