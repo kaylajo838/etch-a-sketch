@@ -3,6 +3,7 @@ const slider = document.getElementById('sizeSlider');
 let gridValue = document.getElementById('slider-value');
 let gridSize = document.querySelector('input');
 const container = document.getElementById('container');
+let colorPicker = document.getElementById('color-picker');
 
 const toggleBtn = document.getElementById('toggle');
 const applyGridSize = document.getElementById('apply');
@@ -72,6 +73,14 @@ toggleBtn.addEventListener('click', () => {
     let boxes = grid.querySelectorAll('.box');
     boxes.forEach(box => box.classList.toggle('toggle-lines'));
 })
+
+
+
+// get color from color picker
+colorPicker.addEventListener('change', watchColorPicker, false);
+function watchColorPicker(e) {
+    return e.target.value;
+}
 
 
 
