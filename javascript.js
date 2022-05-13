@@ -9,6 +9,7 @@ const applyGridSize = document.getElementById('apply');
 const resetBtn = document.getElementById('reset');
 const etchBtn = document.querySelector('.etch');
 const drawBtn = document.querySelector('.draw');
+const eraserBtn = document.getElementById('eraser');
 
 const activeBtn = document.getElementsByClassName('btn');
 
@@ -72,6 +73,9 @@ toggleBtn.addEventListener('click', () => {
 function changeBackground() {
     this.style.backgroundColor = 'black';
 }
+function eraseBackground() {
+    this.style.backgroundColor = 'white';
+}
 
 // change background color after mouse passes over it
 function etchDraw() {
@@ -91,8 +95,21 @@ function pixelDraw() {
     })
 }
 
+function eraser() {
+    let boxes = grid.querySelectorAll('.box');
+    boxes.forEach(box => {
+        box.removeEventListener('mouseover', changeBackground);
+        box.addEventListener('click', eraseBackground);
+        // box.addEventListener('mousedown', eraseBackground);
+        // eraser for sketch not click
+        // box.addEventListener('mouseenter', eraseBackground);
+    })
+}
+
+
 etchBtn.addEventListener('click', etchDraw);
 drawBtn.addEventListener('click', pixelDraw);
+eraserBtn.addEventListener('click', eraser);
 
 
 
