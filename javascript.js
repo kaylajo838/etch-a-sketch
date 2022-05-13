@@ -12,6 +12,8 @@ const etchBtn = document.querySelector('.etch');
 const drawBtn = document.querySelector('.draw');
 const eraserBtn = document.getElementById('eraser');
 const resetGridBtn = document.getElementById('reset-grid');
+const blackBtn = document.getElementById('black-btn');
+const colorBtn = document.getElementById('color-btn');
 
 const activeBtn = document.getElementsByClassName('btn');
 
@@ -27,7 +29,7 @@ gridSize.addEventListener('input', function (e) {
     gridValue.textContent = `Grid Size: ${squareSize}x${squareSize}`;
 });
 
-// function to create grid inside initBox
+// function to create grid
 function createGrid(col, rows) {
     for (let i = 0; i < (col * rows); i++) {
         const div = document.createElement('div');
@@ -76,21 +78,28 @@ toggleBtn.addEventListener('click', () => {
 
 
 
-// get color from color picker
-colorPicker.addEventListener('change', watchColorPicker, false);
-function watchColorPicker(e) {
-    return e.target.value;
-}
-
-
-
 
 // background color change function for box divs in grid
 function changeBackground() {
     this.style.backgroundColor = 'black';
 }
+// background color erase function
 function eraseBackground() {
     this.style.backgroundColor = 'white';
+}
+// function to change background color to color picker input
+function changeColor() {
+    colorPicker.addEventListener('change', (e) => {
+        let color = e.target.value;
+        let boxes = grid.querySelectorAll('.box');
+        boxes.forEach(box => {
+            // box.style.backgroundColor = color;
+            box.removeEventListener('mouseover', changeBackground);
+            box.addEventListener('click', () => {
+                box.style.backgroundColor = color;
+            })
+        })
+    })
 }
 
 // change background color after mouse passes over it
@@ -122,6 +131,8 @@ function eraser() {
     })
 }
 
+// change background color when color input is selected 
+colorPicker.addEventListener('click', changeColor);
 
 etchBtn.addEventListener('click', etchDraw);
 drawBtn.addEventListener('click', pixelDraw);
