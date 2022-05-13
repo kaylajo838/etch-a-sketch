@@ -24,7 +24,6 @@
     <div id="gridSize"></div>
 
 
-
     <div class="slider">
         <label for="range"></label>
         <span id="slider-value" style="color: black;">Grid Size: 16 x 16</span>
@@ -33,22 +32,25 @@
             onchange="showValue(this.value);"> 100
         <button id="apply">Apply</button>
     </div>
-
     <br>
-
     <div class="draw-mode-btns">
         <button class="etch">Etch-a-Sketch Mode</button>
         <button class="draw">Pixel Drawing Mode</button>
     </div>
-
+    <br>
     <div class="color-mode">
         <button class="'color">Color</button>
+        <br>
+        <input type="color" id="color-picker" name="color" value="">
     </div>
-
+    <br>
+    <div>
+        <button id="eraser">Eraser</button>
+    </div>
+    <br>
     <div class="toggle-lines">
         <button id="toggle">Toggle Lines On/Off</button>
     </div>
-
     <br>
 
     <div id="grid" class="toggle-lines"></div>
