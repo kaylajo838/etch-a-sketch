@@ -14,6 +14,7 @@ const eraserBtn = document.getElementById('eraser');
 const resetGridBtn = document.getElementById('reset-grid');
 const blackBtn = document.getElementById('black-btn');
 const colorBtn = document.getElementById('color-btn');
+const rainbowBtn = document.getElementById('rainbow-btn');
 
 const activeBtn = document.getElementsByClassName('btn');
 
@@ -93,12 +94,26 @@ function changeColor() {
         let color = e.target.value;
         let boxes = grid.querySelectorAll('.box');
         boxes.forEach(box => {
-            // box.style.backgroundColor = color;
             box.removeEventListener('mouseover', changeBackground);
             box.addEventListener('click', () => {
                 box.style.backgroundColor = color;
             })
         })
+    })
+}
+
+// random rainbow color background color function
+function rainbowColor() {
+    const randomR = Math.floor(Math.random() * 256);
+    const randomG = Math.floor(Math.random() * 256);
+    const randomB = Math.floor(Math.random() * 256);
+    this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+}
+function rainbowDraw() {
+    let boxes = grid.querySelectorAll('.box');
+    boxes.forEach(box => {
+        box.removeEventListener('mouseover', changeBackground);
+        box.addEventListener('click', rainbowColor);
     })
 }
 
@@ -133,6 +148,7 @@ function eraser() {
 
 // change background color when color input is selected 
 colorPicker.addEventListener('click', changeColor);
+rainbowBtn.addEventListener('click', rainbowDraw);
 
 etchBtn.addEventListener('click', etchDraw);
 drawBtn.addEventListener('click', pixelDraw);
