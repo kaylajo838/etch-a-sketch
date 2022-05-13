@@ -1,10 +1,16 @@
 const grid = document.getElementById('grid');
-const resetBtn = document.getElementById('reset');
 const slider = document.getElementById('sizeSlider');
 let gridValue = document.getElementById('slider-value');
 let gridSize = document.querySelector('input');
-const applyGridSize = document.getElementById('apply');
 const container = document.getElementById('container');
+
+const toggleBtn = document.getElementById('toggle');
+const applyGridSize = document.getElementById('apply');
+const resetBtn = document.getElementById('reset');
+const etchBtn = document.querySelector('.etch');
+const drawBtn = document.querySelector('.draw');
+
+const activeBtn = document.getElementsByClassName('btn');
 
 
 //function to get slider value
@@ -39,7 +45,6 @@ window.onload = createGrid(slider.value, slider.value);
 // change grid size with slider and apply button
 applyGridSize.addEventListener('click', modifyGridSize);
 
-
 // reset grid to 16x16 when reset button is clicked
 resetBtn.addEventListener('click', function () {
     let boxes = grid.querySelectorAll(".box");
@@ -49,12 +54,52 @@ resetBtn.addEventListener('click', function () {
     gridValue.textContent = `Grid Size: 16 x 16`;
 })
 
-
 // function to toggle lines on and off with button
-const toggleBtn = document.getElementById('toggle');
-
 toggleBtn.addEventListener('click', () => {
     let boxes = grid.querySelectorAll('.box');
     boxes.forEach(box => box.classList.toggle('toggle-lines'));
 })
+
+// change background color after mouse passes over it
+// etchBtn.addEventListener('click', () => {
+//     let boxes = grid.querySelectorAll('.box');
+//     boxes.forEach(box => box.classList.toggle('.box'));
+// });
+
+function draw() {
+    let boxes = grid.querySelectorAll('.box');
+    boxes.forEach(box => {
+        box.removeEventListener('click', changeBackground);
+        box.addEventListener('mouseover', changeBackground);
+    })
+}
+
+function changeBackground() {
+    this.style.backgroundColor = 'black';
+}
+
+etchBtn.addEventListener('click', draw);
+
+// function changePenType(){
+//     if (penType == 1 ){
+//         document.getElementById('pen-type').textContent = 'Pen Type: Click' ;
+//         gridCell.forEach(cell => {
+//             cell.removeEventListener('mouseover',changeBackground);
+//             cell.addEventListener('click' , changeBackground);
+//          })
+//         --penType;
+//     }
+//     else{
+//         document.getElementById('pen-type').textContent = 'Pen Type: Follow' ;
+//         gridCell.forEach(cell => {
+//             cell.removeEventListener('click',changeBackground);
+//             cell.addEventListener('mouseover' , changeBackground);
+//          })
+//         ++penType;
+//     }
+// }
+
+// function changeBackground() {
+//     this.style.backgroundColor = gridColor;
+// }
 
