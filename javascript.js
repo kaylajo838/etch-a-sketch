@@ -8,15 +8,16 @@ let colorPicker = document.getElementById('color-picker');
 const toggleBtn = document.getElementById('toggle');
 const applyGridSize = document.getElementById('apply');
 const resetBtn = document.getElementById('reset');
-const etchBtn = document.querySelector('.etch');
-const drawBtn = document.querySelector('.draw');
+const etchBtn = document.getElementById('etch');
+const drawBtn = document.getElementById('draw');
 const eraserBtn = document.getElementById('eraser');
 const resetGridBtn = document.getElementById('reset-grid');
 const blackBtn = document.getElementById('black-btn');
 const colorBtn = document.getElementById('color-btn');
 const rainbowBtn = document.getElementById('rainbow-btn');
 
-const activeBtn = document.getElementsByClassName('btn');
+const drawModeBtns = document.querySelectorAll('.draw-mode-btn');
+const colorModeBtns = document.querySelectorAll('.color-mode-btn');
 
 
 
@@ -146,7 +147,7 @@ function eraser() {
     })
 }
 
-// change background color when color input is selected 
+//change background color when color input is selected
 colorPicker.addEventListener('click', changeColor);
 rainbowBtn.addEventListener('click', rainbowDraw);
 
@@ -154,5 +155,38 @@ etchBtn.addEventListener('click', etchDraw);
 drawBtn.addEventListener('click', pixelDraw);
 eraserBtn.addEventListener('click', eraser);
 
+
+
+// add active class when button is clicked
+drawModeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        drawModeBtns.forEach(f => f.classList.remove('active'));
+        e.target.classList.toggle('active');
+    });
+});
+colorModeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        colorModeBtns.forEach(f => f.classList.remove('active'));
+        e.target.classList.toggle('active');
+    });
+});
+
+
+// Array.from(btns).forEach(btn => {
+//     btn.addEventListener('click', () => {
+//         let selected = document.getElementsByClassName('active');
+//         selected[0].className = selected[0].className.replace(' active', '');
+//         btn.className += ' active';
+//     });
+// });
+
+// function activeClass(e) {
+//     let el = document.querySelector('.active');
+//     // check if element exists
+//     if (el) {
+//         el.classList.remove('active');
+//     }
+//     e.target.classList.add('active');
+// }
 
 
