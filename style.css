@@ -18,6 +18,10 @@ button:hover {
     background-color: rgb(104, 198, 230);
 }
 
+.active {
+    background-color: magenta;
+}
+
 #grid {
     width: 510px;
     height: 510px;
