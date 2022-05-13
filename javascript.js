@@ -13,6 +13,8 @@ const drawBtn = document.querySelector('.draw');
 const activeBtn = document.getElementsByClassName('btn');
 
 
+
+
 //function to get slider value
 function showValue(x) {
     document.getElementById('slider-value').textContent = `Grid Size: ${x} x ${x}`;
@@ -32,6 +34,9 @@ function createGrid(col, rows) {
     }
 }
 
+// make 16x16 grid when window loads
+window.onload = createGrid(slider.value, slider.value);
+
 // modify grid size 
 function modifyGridSize() {
     let boxes = grid.querySelectorAll(".box");
@@ -39,8 +44,8 @@ function modifyGridSize() {
     createGrid(slider.value, slider.value);
 }
 
-// make 16x16 grid when window loads
-window.onload = createGrid(slider.value, slider.value);
+
+
 
 // change grid size with slider and apply button
 applyGridSize.addEventListener('click', modifyGridSize);
@@ -60,13 +65,16 @@ toggleBtn.addEventListener('click', () => {
     boxes.forEach(box => box.classList.toggle('toggle-lines'));
 })
 
-// change background color after mouse passes over it
-// etchBtn.addEventListener('click', () => {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => box.classList.toggle('.box'));
-// });
 
-function draw() {
+
+
+// background color change function for box divs in grid
+function changeBackground() {
+    this.style.backgroundColor = 'black';
+}
+
+// change background color after mouse passes over it
+function etchDraw() {
     let boxes = grid.querySelectorAll('.box');
     boxes.forEach(box => {
         box.removeEventListener('click', changeBackground);
@@ -74,32 +82,17 @@ function draw() {
     })
 }
 
-function changeBackground() {
-    this.style.backgroundColor = 'black';
+// change background color when box is clicked
+function pixelDraw() {
+    let boxes = grid.querySelectorAll('.box');
+    boxes.forEach(box => {
+        box.removeEventListener('mouseover', changeBackground);
+        box.addEventListener('click', changeBackground);
+    })
 }
 
-etchBtn.addEventListener('click', draw);
+etchBtn.addEventListener('click', etchDraw);
+drawBtn.addEventListener('click', pixelDraw);
 
-// function changePenType(){
-//     if (penType == 1 ){
-//         document.getElementById('pen-type').textContent = 'Pen Type: Click' ;
-//         gridCell.forEach(cell => {
-//             cell.removeEventListener('mouseover',changeBackground);
-//             cell.addEventListener('click' , changeBackground);
-//          })
-//         --penType;
-//     }
-//     else{
-//         document.getElementById('pen-type').textContent = 'Pen Type: Follow' ;
-//         gridCell.forEach(cell => {
-//             cell.removeEventListener('click',changeBackground);
-//             cell.addEventListener('mouseover' , changeBackground);
-//          })
-//         ++penType;
-//     }
-// }
 
-// function changeBackground() {
-//     this.style.backgroundColor = gridColor;
-// }
 
