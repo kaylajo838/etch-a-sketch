@@ -10,6 +10,7 @@ const resetBtn = document.getElementById('reset');
 const etchBtn = document.querySelector('.etch');
 const drawBtn = document.querySelector('.draw');
 const eraserBtn = document.getElementById('eraser');
+const resetGridBtn = document.getElementById('reset-grid');
 
 const activeBtn = document.getElementsByClassName('btn');
 
@@ -51,13 +52,19 @@ function modifyGridSize() {
 // change grid size with slider and apply button
 applyGridSize.addEventListener('click', modifyGridSize);
 
-// reset grid to 16x16 when reset button is clicked
-resetBtn.addEventListener('click', function () {
+// reset and clear grid to 16x16 when reset button is clicked
+resetBtn.addEventListener('click', () => {
     let boxes = grid.querySelectorAll(".box");
     boxes.forEach(box => box.remove());
     createGrid(16, 16);
     slider.value = 16;
     gridValue.textContent = `Grid Size: 16 x 16`;
+})
+
+// clear grid only when button is clicked
+resetGridBtn.addEventListener('click', () => {
+    let boxes = grid.querySelectorAll('.box');
+    boxes.forEach(box => box.style.backgroundColor = 'white');
 })
 
 // function to toggle lines on and off with button
