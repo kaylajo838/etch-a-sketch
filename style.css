@@ -22,6 +22,10 @@ button:hover {
     background-color: magenta;
 }
 
+.active2 {
+    background-color: teal;
+}
+
 #grid {
     width: 510px;
     height: 510px;
