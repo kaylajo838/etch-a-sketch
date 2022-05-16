@@ -35,6 +35,19 @@ button:hover {
 }
 
 button {
+    border: 1px solid black;
+    border-radius: 1em;
+    padding: 5px 10px;
+}
+
+.color-mode-btn {
+    border: 1px solid black;
+    border-radius: 1em;
+    padding: 5px 10px;
+}
+
+.draw-mode-btn {
+    border: 1px solid black;
     border-radius: 1em;
     padding: 5px 10px;
 }
