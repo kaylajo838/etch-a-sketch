@@ -23,8 +23,6 @@ const drawModeBtns = document.querySelectorAll('.draw-mode-btn');
 const colorModeBtns = document.querySelectorAll('.color-mode-btn');
 
 
-
-
 //function to get slider value
 function showValue(x) {
     document.getElementById('slider-value').textContent = `Grid Size: ${x} x ${x}`;
@@ -46,7 +44,6 @@ function createGrid(col, rows) {
 
 // make 16x16 grid when window loads
 window.onload = createGrid(slider.value, slider.value);
-
 
 
 
@@ -101,23 +98,6 @@ colorModeBtns.forEach(btn => {
 
 
 
-function changeBackground() {
-    if (blackBtn.classList.contains('active')) {
-        this.style.backgroundColor = 'black'
-    } else if (colorBtn.classList.contains('active')) {
-        colorPicker.onchange = function () {
-            colorPicker = this.value;
-            this.style.backgroundColor = colorPicker;
-        }
-    } else if (rainbowBtn.classList.contains('active')) {
-        const randomR = Math.floor(Math.random() * 256);
-        const randomG = Math.floor(Math.random() * 256);
-        const randomB = Math.floor(Math.random() * 256);
-        this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
-    }
-}
-
-
 let activeEtchBtn = false;
 let activeDrawBtn = false;
 
@@ -127,6 +107,7 @@ let activeRainbowBtn = false;
 
 let activeEraseBtn = false;
 
+// onclick events for draw mode buttons, color mode buttons, and eraser button
 etchBtn.onclick = function () {
     if (activeEtchBtn === false && activeDrawBtn === true) {
         activeEtchBtn = !activeEtchBtn
@@ -228,7 +209,7 @@ function eraseBackground() {
     this.style.backgroundColor = '';
 }
 
-
+// function to test what buttons are active and add proper color classes and event listeners
 function color() {
     let boxes = grid.querySelectorAll('.box');
     if (activeEtchBtn === true && activeBlackBtn === true) {
@@ -390,4 +371,3 @@ function color() {
 
     }
 }
-
