@@ -90,8 +90,8 @@ drawModeBtns.forEach(btn => {
 // add active class when a color button is clicked
 colorModeBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        colorModeBtns.forEach(f => f.classList.remove('active'));
-        e.target.classList.toggle('active');
+        colorModeBtns.forEach(f => f.classList.remove('active2'));
+        e.target.classList.toggle('active2');
     });
 });
 
