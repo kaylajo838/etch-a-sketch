@@ -4,6 +4,7 @@ let gridValue = document.getElementById('slider-value');
 let gridSize = document.querySelector('input');
 const container = document.getElementById('container');
 let colorPicker = document.getElementById('color-picker').value;
+const initColorPicker = document.getElementById('color-picker');
 
 const toggleBtn = document.getElementById('toggle');
 const applyGridSize = document.getElementById('apply');
@@ -65,6 +66,15 @@ resetBtn.addEventListener('click', () => {
     createGrid(16, 16);
     slider.value = 16;
     gridValue.textContent = `Grid Size: 16 x 16`;
+
+    initColorPicker.value = '#03fcf0'
+
+    drawModeBtns.forEach(btn => {
+        btn.classList.remove('active');
+    })
+    colorModeBtns.forEach(btn => {
+        btn.classList.remove('active2');
+    })
 })
 
 // clear grid only when button is clicked
