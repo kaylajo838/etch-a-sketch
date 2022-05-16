@@ -18,6 +18,14 @@ button:hover {
     background-color: rgb(104, 198, 230);
 }
 
+.color-mode-btn:hover {
+    background-color: rgb(104, 198, 230);
+}
+
+.draw-mode-btn:hover {
+    background-color: rgb(104, 198, 230);
+}
+
 .active {
     background-color: magenta;
 }
@@ -51,57 +59,3 @@ input[type='color']::-webkit-color-swatch {
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-
-
-
-/* input[type='range'] {
-    width: 400px;
-}
-
-
-
-.box {
-    border: 1px solid black;
-    box-sizing: border-box;
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-}
-
-#container {
-    width: 500px;
-    height: 500px;
-}
-
-#container>div {
-    height: 25px;
-} */
-
-
-
-
-/* #settings {
-    padding: 0 2vw;
-    display: flex;
-    justify-content: center;
-}
-
-#grid {
-    border: 2px solid black;
-    border-radius: 1rem;
-    width: 70rem;
-    height: 70rem;
-    position: relative;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-}
-
-.box {
-    border: 0.5px solid black;
-    border-radius: 0.5rem;
-}
-
-.box.active {
-    background-color: var(--color-blue);
-} */
