@@ -66,9 +66,7 @@ resetBtn.addEventListener('click', () => {
     createGrid(16, 16);
     slider.value = 16;
     gridValue.textContent = `Grid Size: 16 x 16`;
-
     initColorPicker.value = '#03fcf0'
-
     drawModeBtns.forEach(btn => {
         btn.classList.remove('active');
     })
