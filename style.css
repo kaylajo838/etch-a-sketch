@@ -16,14 +16,23 @@
 
 button:hover {
     background-color: rgb(104, 198, 230);
+    padding: 10px 20px;
+    border-radius: 1.5em;
+    font-size: 1em;
 }
 
 .color-mode-btn:hover {
     background-color: rgb(104, 198, 230);
+    padding: 10px 20px;
+    border-radius: 1.5em;
+    font-size: 1em;
 }
 
 .draw-mode-btn:hover {
     background-color: rgb(104, 198, 230);
+    padding: 10px 20px;
+    border-radius: 1.5em;
+    font-size: 1em;
 }
 
 .active {
