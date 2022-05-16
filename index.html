@@ -12,50 +12,49 @@
 <body>
     <h1>Etch-a-Sketch</h1>
 
-    <button id="reset">Reset All</button>
-    <button id="reset-grid">Reset Grid</button>
+    <div id="btn-container">
+        <button id="reset">Reset All</button>
+        <button id="reset-grid">Reset Grid</button>
 
-    <br><br>
-
-    <div id="container"></div>
-
-    <div id="gridSize"></div>
-
-
-    <div class="slider">
-        <label for="range"></label>
-        <span id="slider-value" style="color: black;">Grid Size: 16 x 16</span>
+        <br><br>
+        <div class="slider">
+            <label for="range"></label>
+            <span id="slider-value" style="color: black;">Grid Size: 16 x 16</span>
+            <br>
+            2 <input type="range" name="range" id="sizeSlider" step="1" value="16" min="2" max="100"
+                onchange="showValue(this.value);"> 100
+            <button id="apply">Apply</button>
+        </div>
         <br>
-        2 <input type="range" name="range" id="sizeSlider" step="1" value="16" min="2" max="100"
-            onchange="showValue(this.value);"> 100
-        <button id="apply">Apply</button>
+        <form name="draw-mode" class="draw-mode">
+            <input type="button" value="Etch-a-Sketch Mode" id="etch" class="draw-mode-btn">
+            <input type="button" value="Pixel Drawing Mode" id="draw" class="draw-mode-btn">
+        </form>
+        <br>
+        <form name="color-mode" class="color-mode">
+            <input type="button" value="Black" id="black-btn" class="color-mode-btn">
+            <input type="button" value="Color" id="color-btn" class="color-mode-btn">
+            <input type="button" value="Rainbow" id="rainbow-btn" class="color-mode-btn">
+        </form>
+        <br>
+        <div>
+            <input type="color" id="color-picker" name="color" value="#03fcf0" data-name="color-picker">
+        </div>
+        <br>
+        <div>
+            <button id="eraser" class="color-mode-btn">Eraser</button>
+        </div>
+        <br>
+        <div class="toggle-lines">
+            <button id="toggle">Toggle Lines On/Off</button>
+        </div>
     </div>
-    <br>
-    <form name="draw-mode" class="draw-mode">
-        <input type="button" value="Etch-a-Sketch Mode" id="etch" class="draw-mode-btn">
-        <input type="button" value="Pixel Drawing Mode" id="draw" class="draw-mode-btn">
-    </form>
-    <br>
-    <form name="color-mode" class="color-mode">
-        <input type="button" value="Black" id="black-btn" class="color-mode-btn">
-        <input type="button" value="Color" id="color-btn" class="color-mode-btn">
-        <input type="button" value="Rainbow" id="rainbow-btn" class="color-mode-btn">
-    </form>
-    <br>
-    <div>
-        <input type="color" id="color-picker" name="color" value="#03fcf0" data-name="color-picker">
-    </div>
-    <br>
-    <div>
-        <button id="eraser" class="color-mode-btn">Eraser</button>
-    </div>
-    <br>
-    <div class="toggle-lines">
-        <button id="toggle">Toggle Lines On/Off</button>
-    </div>
+
     <br>
 
-    <div id="grid" class="toggle-lines"></div>
+    <div id="grid-container">
+        <div id="grid" class="toggle-lines"></div>
+    </div>
 
     <br><br>
 
