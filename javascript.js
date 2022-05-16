@@ -82,12 +82,6 @@ toggleBtn.addEventListener('click', () => {
     boxes.forEach(box => box.classList.toggle('toggle-lines'));
 })
 
-// background color erase function
-function eraseBackground() {
-    this.style.backgroundColor = 'white';
-}
-eraserBtn.addEventListener('click', eraseBackground);
-
 
 // add active class when a draw button is clicked
 drawModeBtns.forEach(btn => {
@@ -96,12 +90,15 @@ drawModeBtns.forEach(btn => {
         e.target.classList.toggle('active');
     });
 });
+// add active class when a color button is clicked
 colorModeBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
         colorModeBtns.forEach(f => f.classList.remove('active'));
         e.target.classList.toggle('active');
     });
 });
+
+
 
 
 function changeBackground() {
@@ -128,6 +125,8 @@ let activeBlackBtn = false;
 let activeColorBtn = false;
 let activeRainbowBtn = false;
 
+let activeEraseBtn = false;
+
 etchBtn.onclick = function () {
     if (activeEtchBtn === false && activeDrawBtn === true) {
         activeEtchBtn = !activeEtchBtn
@@ -135,6 +134,7 @@ etchBtn.onclick = function () {
     }
     activeEtchBtn = true;
     console.log(activeEtchBtn);
+    console.log(activeDrawBtn);
     color();
 }
 drawBtn.onclick = function () {
@@ -144,6 +144,7 @@ drawBtn.onclick = function () {
     }
     activeDrawBtn = true;
     console.log(activeDrawBtn);
+    console.log(activeEtchBtn);
     color();
 }
 blackBtn.onclick = function () {
@@ -153,6 +154,9 @@ blackBtn.onclick = function () {
     } else if (activeBlackBtn === false && activeRainbowBtn === true) {
         activeBlackBtn = !activeBlackBtn
         activeRainbowBtn = !activeRainbowBtn
+    } else if (activeBlackBtn === false && activeEraseBtn === true) {
+        activeBlackBtn = !activeBlackBtn
+        activeEraseBtn = !activeEraseBtn
     }
     activeBlackBtn = true;
     console.log(activeBlackBtn);
@@ -165,6 +169,9 @@ colorBtn.onclick = function () {
     } else if (activeColorBtn === false && activeRainbowBtn === true) {
         activeColorBtn = !activeColorBtn
         activeRainbowBtn = !activeRainbowBtn
+    } else if (activeColorBtn === false && activeEraseBtn === true) {
+        activeColorBtn = !activeColorBtn
+        activeEraseBtn = !activeEraseBtn
     }
     activeColorBtn = true;
     console.log(activeColorBtn);
@@ -177,476 +184,210 @@ rainbowBtn.onclick = function () {
     } else if (activeRainbowBtn === false && activeColorBtn === true) {
         activeRainbowBtn = !activeRainbowBtn
         activeColorBtn = !activeColorBtn
+    } else if (activeRainbowBtn === false && activeEraseBtn === true) {
+        activeRainbowBtn = !activeRainbowBtn
+        activeEraseBtn = !activeEraseBtn
     }
     activeRainbowBtn = true;
     console.log(activeRainbowBtn);
     color();
 }
+eraserBtn.onclick = function () {
+    if (activeEraseBtn === false && activeBlackBtn === true) {
+        activeEraseBtn = !activeEraseBtn
+        activeBlackBtn = !activeBlackBtn
+    } else if (activeEraseBtn === false && activeColorBtn === true) {
+        activeEraseBtn = !activeEraseBtn
+        activeColorBtn = !activeColorBtn
+    } else if (activeEraseBtn === false && activeRainbowBtn === true) {
+        activeEraseBtn = !activeEraseBtn
+        activeRainbowBtn = !activeRainbowBtn
+    }
+    activeEraseBtn = true;
+    color();
+}
+
+// function to change background color to black;
+function blackBackground() {
+    this.style.backgroundColor = 'black';
+}
+// function to change background color to colorPicker value
+function colorPickerBackground() {
+    this.style.backgroundColor = colorPicker;
+}
+// function to change background color to random rainbow
+function rainbowBackground() {
+    const randomR = Math.floor(Math.random() * 256);
+    const randomG = Math.floor(Math.random() * 256);
+    const randomB = Math.floor(Math.random() * 256);
+    this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+    // return `rgb(${randomR}, ${randomG}, ${randomB})`;
+}
+// background color erase function
+function eraseBackground() {
+    this.style.backgroundColor = '';
+}
+
 
 function color() {
     let boxes = grid.querySelectorAll('.box');
     if (activeEtchBtn === true && activeBlackBtn === true) {
         boxes.forEach(box => {
-            box.addEventListener('mouseover', () => {
-                box.style.backgroundColor = 'black';
-            })
+            box.removeEventListener('click', eraseBackground);
+            box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('click', colorPickerBackground);
+            box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('click', rainbowBackground);
+            box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('click', blackBackground);
+
+            box.addEventListener('mouseover', blackBackground);
         })
+        console.log('etch and black are true')
+    } else {
+        console.log('etch and black are NOT true')
     }
 
     if (activeEtchBtn === true && activeColorBtn === true) {
         boxes.forEach(box => {
-            box.addEventListener('mouseover', () => {
-                box.style.backgroundColor = colorPicker;
-            })
+            box.removeEventListener('click', eraseBackground);
+            box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('click', blackBackground);
+            box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('click', rainbowBackground);
+            box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('click', colorPickerBackground);
+
+            box.addEventListener('mouseover', colorPickerBackground);
         })
         document.getElementById('color-picker').onchange = function () {
             colorPicker = this.value
             boxes.forEach(box => {
-                box.addEventListener('mouseover', () => {
-                    box.style.backgroundColor = colorPicker;
-                })
+                box.removeEventListener('click', eraseBackground);
+                box.removeEventListener('mouseover', eraseBackground);
+                box.removeEventListener('click', blackBackground);
+                box.removeEventListener('mouseover', blackBackground);
+                box.removeEventListener('click', rainbowBackground);
+                box.removeEventListener('mouseover', rainbowBackground);
+                box.removeEventListener('click', colorPickerBackground);
+
+                box.addEventListener('mouseover', colorPickerBackground);
             })
         }
+        console.log('etch and color are true')
+    } else {
+        console.log('etch and color are NOT true')
     }
 
     if (activeEtchBtn === true && activeRainbowBtn === true) {
         boxes.forEach(box => {
-            box.addEventListener('mouseover', () => {
-                box.style.backgroundColor = rainbowColor();
-            })
+            box.removeEventListener('click', eraseBackground);
+            box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('click', blackBackground);
+            box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('click', colorPickerBackground);
+            box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('click', rainbowBackground);
+
+            box.addEventListener('mouseover', rainbowBackground);
         })
+        console.log('etch and rainbow are true')
+    } else {
+        console.log('etch and rainbow are NOT true')
     }
+
 
     if (activeDrawBtn === true && activeBlackBtn === true) {
         boxes.forEach(box => {
-            box.addEventListener('click', () => {
-                box.style.backgroundColor = 'black';
-            })
+            box.removeEventListener('click', eraseBackground);
+            box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('click', colorPickerBackground);
+            box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('click', rainbowBackground);
+            box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('mouseover', blackBackground);
+
+            box.addEventListener('click', blackBackground);
         })
+        console.log('draw and black are true')
+    } else {
+        console.log('draw and black are NOT true')
     }
 
     if (activeDrawBtn === true && activeColorBtn === true) {
         boxes.forEach(box => {
-            box.addEventListener('click', () => {
-                box.style.backgroundColor = colorPicker;
-            })
+            box.removeEventListener('click', eraseBackground);
+            box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('click', blackBackground);
+            box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('click', rainbowBackground);
+            box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('mouseover', colorPickerBackground);
+
+            box.addEventListener('click', colorPickerBackground);
         })
         document.getElementById('color-picker').onchange = function () {
             colorPicker = this.value
             boxes.forEach(box => {
-                box.addEventListener('click', () => {
-                    box.style.backgroundColor = colorPicker;
-                })
+                box.removeEventListener('click', eraseBackground);
+                box.removeEventListener('mouseover', eraseBackground);
+                box.removeEventListener('click', blackBackground);
+                box.removeEventListener('mouseover', blackBackground);
+                box.removeEventListener('click', rainbowBackground);
+                box.removeEventListener('mouseover', rainbowBackground);
+                box.removeEventListener('mouseover', colorPickerBackground);
+
+                box.addEventListener('click', colorPickerBackground);
             })
         }
+        console.log('draw and color are true')
+    } else {
+        console.log('draw and color are NOT true')
     }
 
     if (activeDrawBtn === true && activeRainbowBtn === true) {
         boxes.forEach(box => {
-            box.addEventListener('click', () => {
-                box.style.backgroundColor = rainbowColor();
-            })
+            box.removeEventListener('click', eraseBackground);
+            box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('click', blackBackground);
+            box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('click', colorPickerBackground);
+            box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('mouseover', rainbowBackground);
+
+            box.addEventListener('click', rainbowBackground);
+        })
+        console.log('draw and rainbow are true')
+    } else {
+        console.log('draw and rainbow are NOT true')
+    }
+
+    if (activeEraseBtn === true && activeEtchBtn === true) {
+        boxes.forEach(box => {
+            box.removeEventListener('click', blackBackground);
+            box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('click', colorPickerBackground);
+            box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('click', rainbowBackground);
+            box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('click', eraseBackground);
+
+            box.addEventListener('mouseover', eraseBackground);
         })
     }
+    if (activeEraseBtn === true && activeDrawBtn === true) {
+        boxes.forEach(box => {
+            box.removeEventListener('click', blackBackground);
+            box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('click', colorPickerBackground);
+            box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('click', rainbowBackground);
+            box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('mouseover', eraseBackground);
+
+            box.addEventListener('click', eraseBackground);
+        });
+
+    }
 }
-
-
-
-
-// random rainbow color background color function
-function rainbowColor() {
-    const randomR = Math.floor(Math.random() * 256);
-    const randomG = Math.floor(Math.random() * 256);
-    const randomB = Math.floor(Math.random() * 256);
-    // this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
-    return `rgb(${randomR}, ${randomG}, ${randomB})`;
-}
-
-
-
-
-// // background color change function for box divs in grid
-// function blackBackground() {
-//     this.style.backgroundColor = 'black';
-// }
-
-
-
-// // random rainbow color background color function
-// function rainbowColor() {
-//     const randomR = Math.floor(Math.random() * 256);
-//     const randomG = Math.floor(Math.random() * 256);
-//     const randomB = Math.floor(Math.random() * 256);
-//     this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
-//     // return `rgb(${randomR}, ${randomG}, ${randomB})`;
-// }
-
-// // random color background color function 
-// function colorBackground() {
-//     this.style.backgroundColor = changeColor();
-// }
-// // function to change background color to color picker input
-// function changeColor() {
-//     colorPicker.addEventListener('change', (e) => {
-//         let color = e.target.value;
-//         let boxes = grid.querySelectorAll('.box');
-//         boxes.forEach(box => {
-//             box.removeEventListener('mouseover', blackBackground);
-//             box.addEventListener('click', () => {
-//                 box.style.backgroundColor = color;
-//             })
-//         })
-//     })
-// }
-
-
-
-
-// function etchDrawBlack() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('click', colorBackground)
-//         box.removeEventListener('mouseover', colorBackground);
-//         box.removeEventListener('click', rainbowColor)
-//         box.removeEventListener('mouseover', rainbowColor);
-//         box.removeEventListener('click', blackBackground);
-
-//         box.addEventListener('mouseover', blackBackground);
-//     })
-// }
-// function etchDrawColor() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('click', blackBackground);
-//         box.removeEventListener('mouseover', blackBackground);
-//         box.removeEventListener('click', rainbowColor)
-//         box.removeEventListener('mouseover', rainbowColor);
-//         box.removeEventListener('click', colorBackground);
-
-//         box.addEventListener('mouseover', colorBackground);
-//     })
-// }
-// function etchDrawRainbow() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('click', blackBackground);
-//         box.removeEventListener('mouseover', blackBackground);
-//         box.removeEventListener('click', colorBackground);
-//         box.removeEventListener('mouseover', colorBackground);
-//         box.removeEventListener('click', rainbowColor);
-
-//         box.addEventListener('mouseover', rainbowColor);
-//     })
-// }
-
-// function pixelDrawBlack() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('click', colorBackground)
-//         box.removeEventListener('mouseover', colorBackground);
-//         box.removeEventListener('click', rainbowColor)
-//         box.removeEventListener('mouseover', rainbowColor);
-//         box.removeEventListener('mouseover', blackBackground);
-
-//         box.addEventListener('click', blackBackground);
-//     })
-// }
-// function pixelDrawColor() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('click', blackBackground);
-//         box.removeEventListener('mouseover', blackBackground);
-//         box.removeEventListener('click', rainbowColor)
-//         box.removeEventListener('mouseover', rainbowColor);
-//         box.removeEventListener('mouseover', colorBackground);
-
-//         box.addEventListener('click', colorBackground);
-//     })
-// }
-// function pixelDrawRainbow() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('click', blackBackground);
-//         box.removeEventListener('mouseover', blackBackground);
-//         box.removeEventListener('click', colorBackground);
-//         box.removeEventListener('mouseover', colorBackground);
-//         box.removeEventListener('mouseover', rainbowColor);
-
-//         box.addEventListener('click', rainbowColor);
-//     })
-// }
-
-
-
-
-
-
-
-
-
-// function addEvent(el, name, func, bool) {
-//     if (el.addEventListener) {
-//         el.addEventListener(name, func, bool);
-//     }
-//     else if (el.attachEvent) {
-//         el.attachEvent('on' + name, func);
-//     }
-//     else {
-//         el['on' + name] = func;
-//     }
-// }
-
-// let clicked = {
-//     etchBtn: false,
-//     drawBtn: false,
-//     blackBtn: false,
-//     colorBtn: false,
-//     rainbowBtn: false
-// }
-
-// function eventFunc(e) {
-//     let t = e.target;
-//     if (t.hasAttribute('id') && clicked.hasOwnProperty(t.id)) {
-//         clicked[t.id] = true;
-//     }
-
-//     if (clicked['etchBtn']) {
-//         if (clicked['blackBtn']) {
-//             etchDrawBlack();
-//         }
-//         else if (clicked['colorBtn']) {
-//             etchDrawColor();
-//         }
-//         else if (clicked['rainbowBtn']) {
-//             etchDrawRainbow();
-//         }
-//     }
-//     else if (clicked['drawBtn']) {
-//         if (clicked['blackBtn']) {
-//             pixelDrawBlack();
-//         }
-//         else if (clicked['colorBtn']) {
-//             pixelDrawColor();
-//         }
-//         else if (clicked['rainbowBtn']) {
-//             pixelDrawRainbow();
-//         }
-//     }
-// }
-
-// addEvent(etchBtn, 'click', eventFunc, false);
-// addEvent(drawBtn, 'click', eventFunc, false);
-// addEvent(blackBtn, 'click', eventFunc, false);
-// addEvent(colorBtn, 'click', eventFunc, false);
-// addEvent(rainbowBtn, 'click', eventFunc, false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function rainbowBackground() {
-//     this.style.backgroundColor = rainbowColor();
-// }
-
-
-
-
-
-
-
-
-
-
-// !!! NEWEST AND DUPLICATE CODE !!!!
-// // random rainbow color background color function
-// function rainbowColor() {
-//     const randomR = Math.floor(Math.random() * 256);
-//     const randomG = Math.floor(Math.random() * 256);
-//     const randomB = Math.floor(Math.random() * 256);
-//     // this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
-//     return `rgb(${randomR}, ${randomG}, ${randomB})`;
-// }
-
-
-// let penMode = 'color-picker';
-// function changeColor(event) {
-//     if (event.buttons === 1) {
-//         if (penMode === 'rainbow') {
-//             this.style.backgroundColor = rainbowColor();
-//         }
-//         else if (penMode === 'color') {
-//             this.style.backgroundColor = colorPicker.value;
-//         }
-//         else {
-//             this.style.backgroundColor = 'black'
-//         } 
-//     } 
-// }
-
-
-
-
-
-
-
-
-
-
-
-// function rainbowDraw() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('mouseover', blackBackground);
-//         box.addEventListener('click', rainbowColor);
-//     })
-// }
-
-// // change background color after mouse passes over it
-// function etchDraw() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('click', blackBackground);
-//         box.addEventListener('mouseover', blackBackground);
-//     })
-// }
-
-// // change background color when box is clicked
-// function pixelDraw() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('mouseover', blackBackground);
-//         box.addEventListener('click', blackBackground);
-//     })
-// }
-
-// function eraser() {
-//     let boxes = grid.querySelectorAll('.box');
-//     boxes.forEach(box => {
-//         box.removeEventListener('mouseover', blackBackground);
-//         box.addEventListener('click', eraseBackground);
-//         // box.addEventListener('mousedown', eraseBackground);
-//         // eraser for sketch not click
-//         // box.addEventListener('mouseenter', eraseBackground);
-//     })
-// }
-
-// change background color when color input is selected
-// colorPicker.addEventListener('click', changeColor);
-// rainbowBtn.addEventListener('click', rainbowDraw);
-
-// etchBtn.addEventListener('click', etchDraw);
-// drawBtn.addEventListener('click', pixelDraw);
-// eraserBtn.addEventListener('click', eraser);
-
-
-
-// // add active class when a draw button is clicked
-// drawModeBtns.forEach(btn => {
-//     btn.addEventListener('click', (e) => {
-//         drawModeBtns.forEach(f => f.classList.remove('active'));
-//         e.target.classList.toggle('active');
-//     });
-// });
-// colorModeBtns.forEach(btn => {
-//     btn.addEventListener('click', (e) => {
-//         colorModeBtns.forEach(f => f.classList.remove('active'));
-//         e.target.classList.toggle('active');
-//     });
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function color() {
-//     if (etchBtn.classList.contains(active) === true && blackBtn.classList.contains(active) === true) {
-//         let boxes = grid.querySelectorAll('.box');
-//         boxes.forEach(box => {
-//             box.removeEventListener('click', colorBackground)
-//             box.removeEventListener('mouseover', colorBackground);
-//             box.removeEventListener('click', rainbowColor)
-//             box.removeEventListener('mouseover', rainbowColor);
-//             box.removeEventListener('click', blackBackground);
-
-//             box.addEventListener('mouseover', blackBackground);
-//         })
-//     } else if (etchBtn.classList.contains(active) === true && colorBtn.classList.contains(active) === true) {
-//         let boxes = grid.querySelectorAll('.box');
-//         boxes.forEach(box => {
-//             box.removeEventListener('click', blackBackground);
-//             box.removeEventListener('mouseover', blackBackground);
-//             box.removeEventListener('click', rainbowColor)
-//             box.removeEventListener('mouseover', rainbowColor);
-//             box.removeEventListener('click', colorBackground);
-
-//             box.addEventListener('mouseover', colorBackground);
-//         })
-//     } else if (etchBtn.classList.contains(active) === true && rainbowBtn.classList.contains(active) === true) {
-//         let boxes = grid.querySelectorAll('.box');
-//         boxes.forEach(box => {
-//             box.removeEventListener('click', blackBackground);
-//             box.removeEventListener('mouseover', blackBackground);
-//             box.removeEventListener('click', colorBackground);
-//             box.removeEventListener('mouseover', colorBackground);
-//             box.removeEventListener('click', rainbowColor);
-
-//             box.addEventListener('mouseover', rainbowColor);
-//         })
-//     } else if (drawBtn.classList.contains(active) === true && blackBtn.classList.contains(active) === true) {
-//         let boxes = grid.querySelectorAll('.box');
-//         boxes.forEach(box => {
-//             box.removeEventListener('click', colorBackground)
-//             box.removeEventListener('mouseover', colorBackground);
-//             box.removeEventListener('click', rainbowColor)
-//             box.removeEventListener('mouseover', rainbowColor);
-//             box.removeEventListener('mouseover', blackBackground);
-
-//             box.addEventListener('click', blackBackground);
-//         })
-//     } else if (drawBtn.classList.contains(active) === true && colorBtn.classList.contains(active) === true) {
-//         let boxes = grid.querySelectorAll('.box');
-//         boxes.forEach(box => {
-//             box.removeEventListener('click', blackBackground);
-//             box.removeEventListener('mouseover', blackBackground);
-//             box.removeEventListener('click', rainbowColor)
-//             box.removeEventListener('mouseover', rainbowColor);
-//             box.removeEventListener('mouseover', colorBackground);
-
-//             box.addEventListener('click', colorBackground);
-//         })
-//     } else if (drawBtn.classList.contains(active) === true && rainbowBtn.classList.contains(active) === true) {
-//         let boxes = grid.querySelectorAll('.box');
-//         boxes.forEach(box => {
-//             box.removeEventListener('click', blackBackground);
-//             box.removeEventListener('mouseover', blackBackground);
-//             box.removeEventListener('click', colorBackground);
-//             box.removeEventListener('mouseover', colorBackground);
-//             box.removeEventListener('mouseover', rainbowColor);
-
-//             box.addEventListener('click', rainbowColor);
-//         })
-//     }
-// }
 
