@@ -154,8 +154,8 @@ button {
 }
 
 #grid {
-    width: 510px;
-    height: 510px;
+    width: 600px;
+    height: 600px;
     display: grid;
     background-color: #FFF;
     box-shadow: 0 0 10px;
