@@ -37,6 +37,8 @@ header {
 
 h1 {
     text-align: center;
+    color: #a8dadc;
+    -webkit-text-stroke: 3px black;
 }
 
 .box {
