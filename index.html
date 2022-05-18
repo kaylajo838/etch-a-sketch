@@ -34,17 +34,21 @@
                 <button id="apply">Apply</button>
             </div>
             <hr>
-            <span id="draw-mode-text">Pick a draw mode!</span>
-            <form name="draw-mode" class="draw-mode">
-                <input type="button" value="Etch-a-Sketch Mode" id="etch" class="draw-mode-btn">
-                <input type="button" value="Pixel Drawing Mode" id="draw" class="draw-mode-btn">
-            </form>
+            <div id="draw-mode-container">
+                <span id="draw-mode-text">Pick a draw mode!</span>
+                <form name="draw-mode" class="draw-mode">
+                    <input type="button" value="Etch-a-Sketch Mode" id="etch" class="draw-mode-btn">
+                    <input type="button" value="Pixel Drawing Mode" id="draw" class="draw-mode-btn">
+                </form>
+            </div>
             <br>
-            <span id="color-mode-text">Pick a color mode!</span>
-            <form name="color-mode" class="color-mode">
-                <input type="button" value="Black" id="black-btn" class="color-mode-btn">
-                <input type="button" value="Rainbow" id="rainbow-btn" class="color-mode-btn">
-            </form>
+            <div id="color-mode-container">
+                <span id="color-mode-text">Pick a color mode!</span>
+                <form name="color-mode" class="color-mode">
+                    <input type="button" value="Black" id="black-btn" class="color-mode-btn">
+                    <input type="button" value="Rainbow" id="rainbow-btn" class="color-mode-btn">
+                </form>
+            </div>
             <div id="color-container">
                 <input type="button" value="Color" id="color-btn" class="color-mode-btn">
                 <input type="color" id="color-picker" name="color" value="#ef233c" data-name="color-picker">
