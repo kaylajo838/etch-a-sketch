@@ -152,6 +152,7 @@ button {
     border-radius: 1em;
     padding: 5px 10px;
     font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
 }
 
 .draw-mode-btn {
@@ -159,6 +160,7 @@ button {
     border-radius: 1em;
     padding: 5px 10px;
     font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
 }
 
 #reset,
@@ -166,6 +168,7 @@ button {
 #toggle,
 #apply {
     font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
 }
 
 #reset-btns {
