@@ -75,6 +75,7 @@ input {
 #draw-mode-text,
 #color-mode-text {
     color: white;
+    font-size: 20px;
     margin-bottom: 8px;
 }
 
@@ -164,6 +165,7 @@ button {
 
 #slider-value {
     color: white;
+    font-size: 20px;
     margin-bottom: 8px;
 }
 
@@ -173,6 +175,7 @@ button {
 
 .slider span {
     color: white;
+    font-size: 20px;
 }
 
 #grid {
