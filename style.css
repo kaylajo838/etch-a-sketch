@@ -95,7 +95,8 @@ button:hover {
 }
 
 .active.draw-mode-btn {
-    background-color: #a8dadc;
+    background-color: #ef233c;
+    color: white;
     padding: 5px 10px;
     border-radius: 1.5em;
     font-size: 1em;
@@ -103,7 +104,8 @@ button:hover {
 }
 
 .active2.color-mode-btn {
-    background-color: #a8dadc;
+    background-color: #ef233c;
+    color: white;
     padding: 5px 10px;
     border-radius: 1.5em;
     font-size: 1em;
