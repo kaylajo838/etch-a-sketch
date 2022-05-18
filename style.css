@@ -39,6 +39,7 @@ h1 {
     text-align: center;
     color: #a8dadc;
     -webkit-text-stroke: 3px black;
+    margin: 40px;
 }
 
 hr {
