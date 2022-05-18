@@ -3,6 +3,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    background-color: #ef233c;
 }
 
 header {
@@ -125,6 +126,7 @@ input[type='color'] {
     width: 80px;
     height: 80px;
     border: none;
+    background-color: transparent;
 }
 
 input[type='color']::-webkit-color-swatch-wrapper {
