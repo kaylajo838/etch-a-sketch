@@ -83,6 +83,7 @@ button:hover {
     padding: 10px 20px;
     border-radius: 1.5em;
     font-size: 1em;
+    transition: 0.3s;
 }
 
 .draw-mode-btn:hover {
