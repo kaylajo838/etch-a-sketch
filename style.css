@@ -16,6 +16,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 #btn-container {
