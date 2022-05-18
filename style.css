@@ -70,6 +70,12 @@ input {
     justify-content: center;
 }
 
+#draw-mode-text,
+#color-mode-text {
+    color: white;
+    margin-bottom: 8px;
+}
+
 button:hover {
     background-color: #8d99ae;
     padding: 5px 10px;
