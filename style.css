@@ -124,6 +124,17 @@ button {
     padding: 5px 10px;
 }
 
+#color-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+}
+
+#color-btn {
+    margin-bottom: 8px;
+    padding: 5px 10px;
+}
+
 .color-mode-btn {
     border: 1px solid black;
     border-radius: 1em;
@@ -192,13 +203,6 @@ input[type='color']::-webkit-color-swatch {
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-
-/* input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: transparent;
-    width: 200px;
-} */
 
 input[type="range"] {
     -webkit-appearance: none;
