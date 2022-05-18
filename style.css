@@ -1,3 +1,41 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    margin-bottom: auto;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
 .box {
     border: 1px solid black;
 }
@@ -96,4 +134,12 @@ input[type='color']::-webkit-color-swatch {
     border: none;
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
 }
