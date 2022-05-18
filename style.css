@@ -41,6 +41,10 @@ h1 {
     -webkit-text-stroke: 3px black;
 }
 
+hr {
+    width: 200px;
+}
+
 .box {
     border: 1px solid black;
 }
