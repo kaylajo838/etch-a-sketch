@@ -210,6 +210,13 @@ button {
     cursor: pointer;
 }
 
+#erase-toggle-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 input[type='color'] {
     -webkit-appearance: none;
     width: 80px;
@@ -264,4 +271,31 @@ footer {
 
 .fa-github:hover {
     transform: rotate(360deg) scale(1.2);
+}
+
+
+/* Media Queries */
+@media (max-width: 990px) {
+    header {
+        font-size: 40px;
+    }
+
+    #container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    #btn-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    hr {
+        display: none;
+    }
+
 }
