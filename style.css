@@ -210,6 +210,21 @@ button {
     cursor: pointer;
 }
 
+#draw-mode-container #draw-mode-text {
+    display: flex;
+    justify-content: center;
+}
+
+#color-mode-container #color-mode-text {
+    display: flex;
+    justify-content: center;
+}
+
+#color-mode-container .color-mode {
+    display: flex;
+    justify-content: center;
+}
+
 #erase-toggle-lines {
     display: flex;
     flex-direction: column;
