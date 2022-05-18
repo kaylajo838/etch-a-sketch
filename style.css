@@ -140,6 +140,19 @@ button {
     flex-direction: row;
 }
 
+#slider-value {
+    color: white;
+    margin-bottom: 8px;
+}
+
+#apply {
+    margin-top: 10px;
+}
+
+.slider span {
+    color: white;
+}
+
 #grid {
     width: 510px;
     height: 510px;
