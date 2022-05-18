@@ -15,10 +15,17 @@ header {
 
 #container {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
+}
+
+#container::before {
+    content: "";
+}
+
+#container::after {
+    content: "";
 }
 
 #btn-container {
@@ -45,7 +52,6 @@ h1 {
 hr {
     width: 220px;
     margin-top: 20px;
-    /* margin-bottom: 0; */
     margin-bottom: 20px;
     border: 2px solid white;
     border-radius: 20px;
