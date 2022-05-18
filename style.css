@@ -47,7 +47,7 @@ h1 {
 }
 
 .box:hover {
-    background-color: grey;
+    background-color: #8d99ae;
 }
 
 .box-etch {
@@ -127,13 +127,17 @@ button {
     padding: 5px 10px;
 }
 
+#reset-btns {
+    flex-direction: row;
+}
+
 #grid {
     width: 510px;
     height: 510px;
     display: grid;
     background-color: #FFF;
     box-shadow: 0 0 10px;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 #color-picker {
@@ -153,7 +157,7 @@ input[type='color']::-webkit-color-swatch-wrapper {
 }
 
 input[type='color']::-webkit-color-swatch {
-    border: none;
+    border: 2px solid black;
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
