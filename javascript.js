@@ -394,6 +394,5 @@ function color() {
 
             box.addEventListener('click', eraseBackground);
         });
-
     }
 }
