@@ -1,9 +1,10 @@
 # Etch-a-Sketch
 Etch-a sketch coloring created with HTML, CSS, and JavaScript.
 
+Click here to see a live demo of my page:
+[Live Demo](https://kaylajo838.github.io/etch-a-sketch/)
 
-
-This project was a huge project for learning JavaScript better.
+This project was a huge project for me to learn JavaScript better.
 
 I had to do constant research to be able to implement the functions and code into what I wanted done on my page.
 
