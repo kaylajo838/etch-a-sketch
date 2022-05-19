@@ -23,8 +23,14 @@ let rainbowBtn = document.getElementById('rainbow-btn');
 const drawModeBtns = document.querySelectorAll('.draw-mode-btn');
 const colorModeBtns = document.querySelectorAll('.color-mode-btn');
 
+// new elements after media query in css
+const newResetBtn = document.getElementById('new-reset');
+const newResetGridBtn = document.getElementById('new-reset-grid');
+const newEraserBtn = document.getElementById('new-eraser');
+const newToggleBtn = document.getElementById('new-toggle');
 
-//function to get slider value
+
+// function to get slider value
 function showValue(x) {
     document.getElementById('slider-value').textContent = `Grid Size: ${x} x ${x}`;
 }
@@ -74,15 +80,40 @@ resetBtn.addEventListener('click', () => {
         btn.classList.remove('active2');
     })
 })
+// AFTER MEDIA QUERY reset and clear grid to 16x16 when reset button is clicked
+newResetBtn.addEventListener('click', () => {
+    let boxes = grid.querySelectorAll(".box");
+    boxes.forEach(box => box.remove());
+    createGrid(16, 16);
+    slider.value = 16;
+    gridValue.textContent = `Grid Size: 16 x 16`;
+    initColorPicker.value = '#ef233c'
+    drawModeBtns.forEach(btn => {
+        btn.classList.remove('active');
+    })
+    colorModeBtns.forEach(btn => {
+        btn.classList.remove('active2');
+    })
+})
 
 // clear grid only when button is clicked
 resetGridBtn.addEventListener('click', () => {
     let boxes = grid.querySelectorAll('.box');
     boxes.forEach(box => box.style.backgroundColor = 'white');
 })
+// AFTER MEDIA QUERY clear grid only when button is clicked
+newResetGridBtn.addEventListener('click', () => {
+    let boxes = grid.querySelectorAll('.box');
+    boxes.forEach(box => box.style.backgroundColor = 'white');
+})
 
 // function to toggle lines on and off with button
 toggleBtn.addEventListener('click', () => {
+    let boxes = grid.querySelectorAll('.box');
+    boxes.forEach(box => box.classList.toggle('toggle-lines'));
+})
+// AFTER MEDIA QUERY function to toggle lines on and off with button
+newToggleBtn.addEventListener('click', () => {
     let boxes = grid.querySelectorAll('.box');
     boxes.forEach(box => box.classList.toggle('toggle-lines'));
 })
@@ -182,6 +213,21 @@ rainbowBtn.onclick = function () {
     color();
 }
 eraserBtn.onclick = function () {
+    if (activeEraseBtn === false && activeBlackBtn === true) {
+        activeEraseBtn = !activeEraseBtn
+        activeBlackBtn = !activeBlackBtn
+    } else if (activeEraseBtn === false && activeColorBtn === true) {
+        activeEraseBtn = !activeEraseBtn
+        activeColorBtn = !activeColorBtn
+    } else if (activeEraseBtn === false && activeRainbowBtn === true) {
+        activeEraseBtn = !activeEraseBtn
+        activeRainbowBtn = !activeRainbowBtn
+    }
+    activeEraseBtn = true;
+    color();
+}
+// AFTER MEDIA QUERY
+newEraserBtn.onclick = function () {
     if (activeEraseBtn === false && activeBlackBtn === true) {
         activeEraseBtn = !activeEraseBtn
         activeBlackBtn = !activeBlackBtn
