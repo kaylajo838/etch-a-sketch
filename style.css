@@ -178,6 +178,13 @@ button {
     flex-direction: row;
 }
 
+#middle-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #slider-value {
     color: white;
     font-size: 20px;
