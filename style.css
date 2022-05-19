@@ -13,6 +13,7 @@ header {
     font-size: 50px;
 }
 
+/* Main container */
 #container {
     display: flex;
     align-items: center;
@@ -28,9 +29,13 @@ header {
     content: "";
 }
 
+#new-top-container {
+    display: none;
+}
+
 #middle-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -56,10 +61,7 @@ h1 {
     margin: 40px;
 }
 
-#new-top-container {
-    display: none;
-}
-
+/* All hr styleing */
 .big-hr {
     width: 220px;
     margin-top: 20px;
@@ -68,16 +70,17 @@ h1 {
     border-radius: 20px;
 }
 
+.mobile-hr {
+    display: none;
+}
+
 .small-hr {
     display: none;
 }
 
+/* box for inner grid made in JavaScript */
 .box {
     border: 1px solid black;
-}
-
-.toggle-lines {
-    border: none;
 }
 
 .box:hover {
@@ -88,6 +91,10 @@ h1 {
     background-color: black;
 }
 
+.toggle-lines {
+    border: none;
+}
+
 button {
     cursor: pointer;
 }
@@ -96,20 +103,7 @@ input {
     cursor: pointer;
 }
 
-.slider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#draw-mode-text,
-#color-mode-text {
-    color: white;
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
+/* All controls hover styling */
 button:hover {
     background-color: #8d99ae;
     padding: 5px 10px;
@@ -134,6 +128,7 @@ button:hover {
     transition: 0.3s;
 }
 
+/* Active element styling */
 .active.draw-mode-btn {
     background-color: #ef233c;
     color: white;
@@ -166,6 +161,13 @@ button {
     font-size: 15px;
 }
 
+#draw-mode-text,
+#color-mode-text {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
 #reset,
 #reset-grid,
 #toggle,
@@ -178,11 +180,17 @@ button {
     flex-direction: row;
 }
 
-#middle-container {
+/* Slider styling */
+.slider {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+
+.slider span {
+    color: white;
+    font-size: 20px;
 }
 
 #slider-value {
@@ -193,11 +201,6 @@ button {
 
 #apply {
     margin-top: 10px;
-}
-
-.slider span {
-    color: white;
-    font-size: 20px;
 }
 
 #grid {
@@ -218,9 +221,11 @@ button {
     justify-content: center;
 }
 
+/* All color container styling */
 #color-container {
     display: flex;
     flex-direction: column;
+    align-self: center;
     margin-top: 8px;
 }
 
@@ -253,10 +258,6 @@ button {
     justify-content: center;
 }
 
-#color-container {
-    align-self: center;
-}
-
 #erase-toggle-lines {
     display: flex;
     flex-direction: column;
@@ -268,6 +269,7 @@ button {
     display: none;
 }
 
+/* Input type styling with webkit */
 input[type='color'] {
     -webkit-appearance: none;
     width: 80px;
@@ -304,6 +306,7 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 1em;
 }
 
+/* Footer styling */
 footer {
     background-color: black;
     color: white;
@@ -323,6 +326,7 @@ footer {
 .fa-github:hover {
     transform: rotate(360deg) scale(1.2);
 }
+
 
 
 /* Media Queries */
@@ -393,6 +397,10 @@ footer {
         margin-bottom: 20px;
         border: 2px solid white;
         border-radius: 20px;
+    }
+
+    .mobile-hr {
+        display: none;
     }
 
     #draw-mode-container {
@@ -524,6 +532,10 @@ footer {
         border-radius: 20px;
     }
 
+    .mobile-hr {
+        display: none;
+    }
+
     #slider-value {
         font-size: 15px;
     }
@@ -555,9 +567,18 @@ footer {
         font-size: 20px;
     }
 
+    h1 {
+        margin: 30px 0;
+    }
+
     #grid {
         width: 300px;
         height: 300px;
+        margin-top: 10px;
+    }
+
+    #new-top-container {
+        margin-bottom: 20px;
     }
 
     #middle-container {
@@ -578,6 +599,9 @@ footer {
     #draw-mode-container {
         margin-top: 20px;
         margin-bottom: 0;
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     #color-container {
@@ -597,6 +621,21 @@ footer {
         border-radius: 20px;
     }
 
+    .mobile-hr {
+        display: flex;
+        width: 15em;
+        border: 1px solid white;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-radius: 20px;
+    }
+
+    .middle-container-br {
+        display: none;
+    }
+
     input[type="range"] {
         height: 8px;
     }
@@ -604,5 +643,13 @@ footer {
     input[type="range"]::-webkit-slider-thumb {
         height: 25px;
         width: 8px;
+    }
+
+    #new-bottom-container {
+        margin: 20px 0;
+    }
+
+    footer {
+        font-size: 10px;
     }
 }
