@@ -20,46 +20,70 @@
     </header>
 
     <div id="container">
-        <div id="btn-container">
-            <div id="reset-btns">
+        <!-- new-top-container hidden until max width: 990px -->
+        <div id="new-top">
+            <div id="new-top-container">
                 <button id="reset">Reset All</button>
                 <button id="reset-grid">Reset Grid</button>
             </div>
-            <hr>
-            <div class="slider">
-                <label for="range"></label>
-                <span id="slider-value">Grid Size: 16 x 16</span>
-                <span>2 <input type="range" name="range" id="sizeSlider" step="1" value="16" min="2" max="100"
-                        onchange="showValue(this.value);"> 100</span>
-                <button id="apply">Apply</button>
+            <div>
+                <hr class="small-hr">
             </div>
-            <hr>
-            <div id="draw-mode-container">
-                <span id="draw-mode-text">Pick a draw mode!</span>
-                <form name="draw-mode" class="draw-mode">
-                    <input type="button" value="Etch-a-Sketch Mode" id="etch" class="draw-mode-btn">
-                    <input type="button" value="Pixel Drawing Mode" id="draw" class="draw-mode-btn">
-                </form>
-            </div>
-            <br>
-            <div id="color-mode-container">
-                <span id="color-mode-text">Pick a color mode!</span>
-                <form name="color-mode" class="color-mode">
-                    <input type="button" value="Black" id="black-btn" class="color-mode-btn">
-                    <input type="button" value="Rainbow" id="rainbow-btn" class="color-mode-btn">
-                </form>
-            </div>
-            <div id="color-container">
-                <input type="button" value="Color" id="color-btn" class="color-mode-btn">
-                <input type="color" id="color-picker" name="color" value="#ef233c" data-name="color-picker">
-            </div>
-            <hr>
-            <div id="erase-toggle-lines">
-                <div>
-                    <button id="eraser" class="color-mode-btn">Eraser</button>
+        </div>
+        <div>
+            <div id="btn-container">
+                <div id="reset-btns">
+                    <button id="reset">Reset All</button>
+                    <button id="reset-grid">Reset Grid</button>
+                </div>
+                <hr class="big-hr">
+                <div class="slider">
+                    <label for="range"></label>
+                    <span id="slider-value">Grid Size: 16 x 16</span>
+                    <span>2 <input type="range" name="range" id="sizeSlider" step="1" value="16" min="2" max="100"
+                            onchange="showValue(this.value);"> 100</span>
+                    <button id="apply">Apply</button>
+                </div>
+                <hr class="big-hr">
+                <div id="draw-mode-container">
+                    <span id="draw-mode-text">Pick a draw mode!</span>
+                    <form name="draw-mode" class="draw-mode">
+                        <input type="button" value="Etch-a-Sketch Mode" id="etch" class="draw-mode-btn">
+                        <input type="button" value="Pixel Drawing Mode" id="draw" class="draw-mode-btn">
+                    </form>
                 </div>
                 <br>
-                <div class="toggle-lines">
+                <div id="main-color-mode-container">
+                    <div id="color-mode-container">
+                        <span id="color-mode-text">Pick a color mode!</span>
+                        <form name="color-mode" class="color-mode">
+                            <input type="button" value="Black" id="black-btn" class="color-mode-btn">
+                            <input type="button" value="Rainbow" id="rainbow-btn" class="color-mode-btn">
+                        </form>
+                    </div>
+                    <div id="color-container">
+                        <input type="button" value="Color" id="color-btn" class="color-mode-btn">
+                        <input type="color" id="color-picker" name="color" value="#ef233c" data-name="color-picker">
+                    </div>
+                </div>
+                <hr class="big-hr">
+                <div id="erase-toggle-lines">
+                    <div>
+                        <button id="eraser" class="color-mode-btn">Eraser</button>
+                    </div>
+                    <br>
+                    <div class="toggle-lines">
+                        <button id="toggle">Toggle Lines On/Off</button>
+                    </div>
+                </div>
+            </div>
+            <!-- New bottom container hidden until media query at max-width: 990px -->
+            <div id="new-bottom">
+                <div>
+                    <hr class="small-hr">
+                </div>
+                <div id="new-bottom-container">
+                    <button id="eraser" class="color-mode-btn">Eraser</button>
                     <button id="toggle">Toggle Lines On/Off</button>
                 </div>
             </div>
@@ -70,7 +94,6 @@
         <div id="grid-container">
             <div id="grid" class="toggle-lines"></div>
         </div>
-
         <br><br>
     </div>
 
