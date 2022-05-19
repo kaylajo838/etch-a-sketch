@@ -136,7 +136,6 @@ colorModeBtns.forEach(btn => {
 
 
 
-
 let activeEtchBtn = false;
 let activeDrawBtn = false;
 
@@ -153,8 +152,6 @@ etchBtn.onclick = function () {
         activeDrawBtn = !activeDrawBtn
     }
     activeEtchBtn = true;
-    console.log(activeEtchBtn);
-    console.log(activeDrawBtn);
     color();
 }
 drawBtn.onclick = function () {
@@ -163,8 +160,6 @@ drawBtn.onclick = function () {
         activeEtchBtn = !activeEtchBtn
     }
     activeDrawBtn = true;
-    console.log(activeDrawBtn);
-    console.log(activeEtchBtn);
     color();
 }
 blackBtn.onclick = function () {
@@ -179,7 +174,6 @@ blackBtn.onclick = function () {
         activeEraseBtn = !activeEraseBtn
     }
     activeBlackBtn = true;
-    console.log(activeBlackBtn);
     color();
 }
 colorBtn.onclick = function () {
@@ -194,7 +188,6 @@ colorBtn.onclick = function () {
         activeEraseBtn = !activeEraseBtn
     }
     activeColorBtn = true;
-    console.log(activeColorBtn);
     color();
 }
 rainbowBtn.onclick = function () {
@@ -209,7 +202,6 @@ rainbowBtn.onclick = function () {
         activeEraseBtn = !activeEraseBtn
     }
     activeRainbowBtn = true;
-    console.log(activeRainbowBtn);
     color();
 }
 eraserBtn.onclick = function () {
@@ -256,7 +248,6 @@ function rainbowBackground() {
     const randomG = Math.floor(Math.random() * 256);
     const randomB = Math.floor(Math.random() * 256);
     this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
-    // return `rgb(${randomR}, ${randomG}, ${randomB})`;
 }
 // background color erase function
 function eraseBackground() {
@@ -278,9 +269,6 @@ function color() {
 
             box.addEventListener('mouseover', blackBackground);
         })
-        console.log('etch and black are true')
-    } else {
-        console.log('etch and black are NOT true')
     }
 
     if (activeEtchBtn === true && activeColorBtn === true) {
@@ -309,9 +297,6 @@ function color() {
                 box.addEventListener('mouseover', colorPickerBackground);
             })
         }
-        console.log('etch and color are true')
-    } else {
-        console.log('etch and color are NOT true')
     }
 
     if (activeEtchBtn === true && activeRainbowBtn === true) {
@@ -326,11 +311,7 @@ function color() {
 
             box.addEventListener('mouseover', rainbowBackground);
         })
-        console.log('etch and rainbow are true')
-    } else {
-        console.log('etch and rainbow are NOT true')
     }
-
 
     if (activeDrawBtn === true && activeBlackBtn === true) {
         boxes.forEach(box => {
@@ -344,9 +325,6 @@ function color() {
 
             box.addEventListener('click', blackBackground);
         })
-        console.log('draw and black are true')
-    } else {
-        console.log('draw and black are NOT true')
     }
 
     if (activeDrawBtn === true && activeColorBtn === true) {
@@ -375,9 +353,6 @@ function color() {
                 box.addEventListener('click', colorPickerBackground);
             })
         }
-        console.log('draw and color are true')
-    } else {
-        console.log('draw and color are NOT true')
     }
 
     if (activeDrawBtn === true && activeRainbowBtn === true) {
@@ -392,9 +367,6 @@ function color() {
 
             box.addEventListener('click', rainbowBackground);
         })
-        console.log('draw and rainbow are true')
-    } else {
-        console.log('draw and rainbow are NOT true')
     }
 
     if (activeEraseBtn === true && activeEtchBtn === true) {
