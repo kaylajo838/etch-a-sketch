@@ -29,6 +29,9 @@ const newResetGridBtn = document.getElementById('new-reset-grid');
 const newEraserBtn = document.getElementById('new-eraser');
 const newToggleBtn = document.getElementById('new-toggle');
 
+// get media size matched for media queries 
+let widthMatch = window.matchMedia('(max-width: 680px)');
+
 
 // function to get slider value
 function showValue(x) {
@@ -261,13 +264,34 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('touchstart', eraseBackground);
+            box.removeEventListener('touchmove', eraseBackground);
+            box.removeEventListener('touchend', eraseBackground);
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('touchstart', colorPickerBackground);
+            box.removeEventListener('touchmove', colorPickerBackground);
+            box.removeEventListener('touchend', colorPickerBackground);
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('touchstart', rainbowBackground);
+            box.removeEventListener('touchmove', rainbowBackground);
+            box.removeEventListener('touchend', rainbowBackground);
             box.removeEventListener('click', blackBackground);
 
-            box.addEventListener('mouseover', blackBackground);
+            widthMatch.addEventListener('change', function (mm) {
+                if (mm.matches) {
+                    box.addEventListener('touchstart', blackBackground);
+                    box.addEventListener('touchmove', blackBackground);
+                    box.addEventListener('touchend', blackBackground);
+                } else {
+                    box.removeEventListener('touchstart', blackBackground);
+                    box.removeEventListener('touchmove', blackBackground);
+                    box.removeEventListener('touchend', blackBackground);
+
+                    box.addEventListener('mouseover', blackBackground);
+                }
+            })
         })
     }
 
@@ -275,26 +299,68 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('touchstart', eraseBackground);
+            box.removeEventListener('touchmove', eraseBackground);
+            box.removeEventListener('touchend', eraseBackground);
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('touchstart', blackBackground);
+            box.removeEventListener('touchmove', blackBackground);
+            box.removeEventListener('touchend', blackBackground);
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('touchstart', rainbowBackground);
+            box.removeEventListener('touchmove', rainbowBackground);
+            box.removeEventListener('touchend', rainbowBackground);
             box.removeEventListener('click', colorPickerBackground);
 
-            box.addEventListener('mouseover', colorPickerBackground);
+            widthMatch.addEventListener('change', function (mm) {
+                if (mm.matches) {
+                    box.addEventListener('touchstart', colorPickerBackground);
+                    box.addEventListener('touchmove', colorPickerBackground);
+                    box.addEventListener('touchend', colorPickerBackground);
+                } else {
+                    box.removeEventListener('touchstart', colorPickerBackground);
+                    box.removeEventListener('touchmove', colorPickerBackground);
+                    box.removeEventListener('touchend', colorPickerBackground);
+
+                    box.addEventListener('mouseover', colorPickerBackground);
+                }
+            })
         })
         document.getElementById('color-picker').onchange = function () {
             colorPicker = this.value
             boxes.forEach(box => {
                 box.removeEventListener('click', eraseBackground);
                 box.removeEventListener('mouseover', eraseBackground);
+                box.removeEventListener('touchstart', eraseBackground);
+                box.removeEventListener('touchmove', eraseBackground);
+                box.removeEventListener('touchend', eraseBackground);
                 box.removeEventListener('click', blackBackground);
                 box.removeEventListener('mouseover', blackBackground);
+                box.removeEventListener('touchstart', blackBackground);
+                box.removeEventListener('touchmove', blackBackground);
+                box.removeEventListener('touchend', blackBackground);
                 box.removeEventListener('click', rainbowBackground);
                 box.removeEventListener('mouseover', rainbowBackground);
+                box.removeEventListener('touchstart', rainbowBackground);
+                box.removeEventListener('touchmove', rainbowBackground);
+                box.removeEventListener('touchend', rainbowBackground);
                 box.removeEventListener('click', colorPickerBackground);
 
-                box.addEventListener('mouseover', colorPickerBackground);
+                widthMatch.addEventListener('change', function (mm) {
+                    if (mm.matches) {
+                        box.addEventListener('touchstart', colorPickerBackground);
+                        box.addEventListener('touchmove', colorPickerBackground);
+                        box.addEventListener('touchend', colorPickerBackground);
+                    } else {
+                        box.removeEventListener('touchstart', colorPickerBackground);
+                        box.removeEventListener('touchmove', colorPickerBackground);
+                        box.removeEventListener('touchend', colorPickerBackground);
+
+                        box.addEventListener('mouseover', colorPickerBackground);
+                    }
+                })
             })
         }
     }
@@ -303,13 +369,34 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('touchstart', eraseBackground);
+            box.removeEventListener('touchmove', eraseBackground);
+            box.removeEventListener('touchend', eraseBackground);
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('touchstart', blackBackground);
+            box.removeEventListener('touchmove', blackBackground);
+            box.removeEventListener('touchend', blackBackground);
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('touchstart', colorPickerBackground);
+            box.removeEventListener('touchmove', colorPickerBackground);
+            box.removeEventListener('touchend', colorPickerBackground);
             box.removeEventListener('click', rainbowBackground);
 
-            box.addEventListener('mouseover', rainbowBackground);
+            widthMatch.addEventListener('change', function (mm) {
+                if (mm.matches) {
+                    box.addEventListener('touchstart', rainbowBackground);
+                    box.addEventListener('touchmove', rainbowBackground);
+                    box.addEventListener('touchend', rainbowBackground);
+                } else {
+                    box.removeEventListener('touchstart', rainbowBackground);
+                    box.removeEventListener('touchmove', rainbowBackground);
+                    box.removeEventListener('touchend', rainbowBackground);
+
+                    box.addEventListener('mouseover', rainbowBackground);
+                }
+            })
         })
     }
 
@@ -317,11 +404,23 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('touchstart', eraseBackground);
+            box.removeEventListener('touchmove', eraseBackground);
+            box.removeEventListener('touchend', eraseBackground);
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('touchstart', colorPickerBackground);
+            box.removeEventListener('touchmove', colorPickerBackground);
+            box.removeEventListener('touchend', colorPickerBackground);
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('touchstart', rainbowBackground);
+            box.removeEventListener('touchmove', rainbowBackground);
+            box.removeEventListener('touchend', rainbowBackground);
             box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('touchstart', blackBackground);
+            box.removeEventListener('touchmove', blackBackground);
+            box.removeEventListener('touchend', blackBackground);
 
             box.addEventListener('click', blackBackground);
         })
@@ -331,11 +430,23 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('touchstart', eraseBackground);
+            box.removeEventListener('touchmove', eraseBackground);
+            box.removeEventListener('touchend', eraseBackground);
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('touchstart', blackBackground);
+            box.removeEventListener('touchmove', blackBackground);
+            box.removeEventListener('touchend', blackBackground);
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('touchstart', rainbowBackground);
+            box.removeEventListener('touchmove', rainbowBackground);
+            box.removeEventListener('touchend', rainbowBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('touchstart', colorPickerBackground);
+            box.removeEventListener('touchmove', colorPickerBackground);
+            box.removeEventListener('touchend', colorPickerBackground);
 
             box.addEventListener('click', colorPickerBackground);
         })
@@ -344,11 +455,23 @@ function color() {
             boxes.forEach(box => {
                 box.removeEventListener('click', eraseBackground);
                 box.removeEventListener('mouseover', eraseBackground);
+                box.removeEventListener('touchstart', eraseBackground);
+                box.removeEventListener('touchmove', eraseBackground);
+                box.removeEventListener('touchend', eraseBackground);
                 box.removeEventListener('click', blackBackground);
                 box.removeEventListener('mouseover', blackBackground);
+                box.removeEventListener('touchstart', blackBackground);
+                box.removeEventListener('touchmove', blackBackground);
+                box.removeEventListener('touchend', blackBackground);
                 box.removeEventListener('click', rainbowBackground);
                 box.removeEventListener('mouseover', rainbowBackground);
+                box.removeEventListener('touchstart', rainbowBackground);
+                box.removeEventListener('touchmove', rainbowBackground);
+                box.removeEventListener('touchend', rainbowBackground);
                 box.removeEventListener('mouseover', colorPickerBackground);
+                box.removeEventListener('touchstart', colorPickerBackground);
+                box.removeEventListener('touchmove', colorPickerBackground);
+                box.removeEventListener('touchend', colorPickerBackground);
 
                 box.addEventListener('click', colorPickerBackground);
             })
@@ -359,11 +482,23 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('touchstart', eraseBackground);
+            box.removeEventListener('touchmove', eraseBackground);
+            box.removeEventListener('touchend', eraseBackground);
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('touchstart', blackBackground);
+            box.removeEventListener('touchmove', blackBackground);
+            box.removeEventListener('touchend', blackBackground);
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('touchstart', colorPickerBackground);
+            box.removeEventListener('touchmove', colorPickerBackground);
+            box.removeEventListener('touchend', colorPickerBackground);
             box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('touchstart', rainbowBackground);
+            box.removeEventListener('touchmove', rainbowBackground);
+            box.removeEventListener('touchend', rainbowBackground);
 
             box.addEventListener('click', rainbowBackground);
         })
@@ -373,24 +508,57 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('touchstart', blackBackground);
+            box.removeEventListener('touchmove', blackBackground);
+            box.removeEventListener('touchend', blackBackground);
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('touchstart', colorPickerBackground);
+            box.removeEventListener('touchmove', colorPickerBackground);
+            box.removeEventListener('touchend', colorPickerBackground);
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('touchstart', rainbowBackground);
+            box.removeEventListener('touchmove', rainbowBackground);
+            box.removeEventListener('touchend', rainbowBackground);
             box.removeEventListener('click', eraseBackground);
 
-            box.addEventListener('mouseover', eraseBackground);
+            widthMatch.addEventListener('change', function (mm) {
+                if (mm.matches) {
+                    box.addEventListener('touchstart', eraseBackground);
+                    box.addEventListener('touchmove', eraseBackground);
+                    box.addEventListener('touchend', eraseBackground);
+                } else {
+                    box.removeEventListener('touchstart', eraseBackground);
+                    box.removeEventListener('touchmove', eraseBackground);
+                    box.removeEventListener('touchend', eraseBackground);
+
+                    box.addEventListener('mouseover', eraseBackground);
+                }
+            })
         })
     }
     if (activeEraseBtn === true && activeDrawBtn === true) {
         boxes.forEach(box => {
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
+            box.removeEventListener('touchstart', blackBackground);
+            box.removeEventListener('touchmove', blackBackground);
+            box.removeEventListener('touchend', blackBackground);
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
+            box.removeEventListener('touchstart', colorPickerBackground);
+            box.removeEventListener('touchmove', colorPickerBackground);
+            box.removeEventListener('touchend', colorPickerBackground);
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
+            box.removeEventListener('touchstart', rainbowBackground);
+            box.removeEventListener('touchmove', rainbowBackground);
+            box.removeEventListener('touchend', rainbowBackground);
             box.removeEventListener('mouseover', eraseBackground);
+            box.removeEventListener('touchstart', eraseBackground);
+            box.removeEventListener('touchmove', eraseBackground);
+            box.removeEventListener('touchend', eraseBackground);
 
             box.addEventListener('click', eraseBackground);
         });
