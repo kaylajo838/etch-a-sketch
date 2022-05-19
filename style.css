@@ -49,12 +49,20 @@ h1 {
     margin: 40px;
 }
 
-hr {
+#new-top-container {
+    display: none;
+}
+
+.big-hr {
     width: 220px;
     margin-top: 20px;
     margin-bottom: 20px;
     border: 2px solid white;
     border-radius: 20px;
+}
+
+.small-hr {
+    display: none;
 }
 
 .box {
@@ -143,25 +151,6 @@ button {
     padding: 5px 10px;
 }
 
-#color-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 8px;
-}
-
-#color-btn {
-    margin-bottom: 8px;
-    padding: 5px 10px;
-}
-
-.color-mode-btn {
-    border: 1px solid black;
-    border-radius: 1em;
-    padding: 5px 10px;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 15px;
-}
-
 .draw-mode-btn {
     border: 1px solid black;
     border-radius: 1em;
@@ -215,6 +204,35 @@ button {
     justify-content: center;
 }
 
+#color-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+}
+
+#color-btn {
+    margin-bottom: 8px;
+    padding: 5px 10px;
+}
+
+.color-mode-btn {
+    border: 1px solid black;
+    border-radius: 1em;
+    padding: 5px 10px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+}
+
+#main-color-mode-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#color-container {
+    align-self: center;
+}
+
 #color-mode-container #color-mode-text {
     display: flex;
     justify-content: center;
@@ -230,6 +248,10 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#new-bottom-container {
+    display: none;
 }
 
 input[type='color'] {
@@ -302,6 +324,36 @@ footer {
         justify-content: space-around;
     }
 
+    #reset-btns {
+        display: none;
+    }
+
+    #new-top-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 5px;
+    }
+
+    input[type="range"] {
+        height: 10px;
+        width: 150px;
+    }
+
+    #slider-value {
+        font-size: 15px;
+    }
+
+    .slider span {
+        font-size: 15px;
+    }
+
+    .slider {
+        margin-right: 20px;
+    }
+
     #btn-container {
         display: flex;
         flex-direction: row;
@@ -309,8 +361,104 @@ footer {
         justify-content: center;
     }
 
-    hr {
+    .big-hr {
         display: none;
     }
 
+    .small-hr {
+        display: flex;
+        width: 35em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 2px solid white;
+        border-radius: 20px;
+    }
+
+    #draw-mode-container {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    #draw-mode-container #draw-mode-text {
+        text-align: center;
+    }
+
+    #draw-mode-container .draw-mode {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #main-color-mode-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #color-mode-container {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    #color-mode-container #color-mode-text {
+        text-align: center;
+    }
+
+    #color-mode-container .color-mode {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    }
+
+    #color-container {
+        align-self: center;
+    }
+
+    input[type='color'] {
+        -webkit-appearance: none;
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: transparent;
+    }
+
+    #reset,
+    #reset-grid,
+    #toggle,
+    #apply {
+        font-size: 13px;
+    }
+
+    .color-mode-btn {
+        font-size: 13px;
+    }
+
+    .draw-mode-btn {
+        font-size: 13px;
+    }
+
+    #erase-toggle-lines {
+        display: none;
+    }
+
+    #new-bottom-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        gap: 5px;
+    }
+
+    /* #grid {
+        width: 600px;
+        height: 600px;
+    } */
 }
