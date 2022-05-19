@@ -343,10 +343,6 @@ footer {
     }
 
     #slider-value {
-        font-size: 15px;
-    }
-
-    #slider-value {
         font-size: 18px;
     }
 
@@ -464,7 +460,7 @@ footer {
         justify-content: center;
         align-items: center;
         margin-top: 30px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         gap: 5px;
     }
 
