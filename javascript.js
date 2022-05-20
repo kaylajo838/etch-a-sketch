@@ -265,32 +265,13 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);;
-
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
-
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
-
             box.removeEventListener('click', blackBackground);
 
-            widthMatch.addEventListener('change', function (mm) {
-                if (mm.matches) {
-                    box.addEventListener('mouseup', function (event) {
-                        isMouseDown = true;
-                    })
-                    box.addEventListener('mouseup', function (event) {
-                        isMouseDown = false;
-                    })
-                    box.addEventListener('mousedown', function (event) {
-                        if (isMouseDown) {
-                            blackBackground();
-                        }
-                    })
-                } else {
-                    box.addEventListener('mouseover', blackBackground);
-                }
-            })
+            box.addEventListener('mouseover', blackBackground);
         })
     }
 
@@ -298,64 +279,26 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
-
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
-
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
-
             box.removeEventListener('click', colorPickerBackground);
 
-            widthMatch.addEventListener('change', function (mm) {
-                if (mm.matches) {
-                    box.addEventListener('mouseup', function (event) {
-                        isMouseDown = true;
-                    })
-                    box.addEventListener('mouseup', function (event) {
-                        isMouseDown = false;
-                    })
-                    box.addEventListener('mousedown', function (event) {
-                        if (isMouseDown) {
-                            colorPickerBackground();
-                        }
-                    })
-                } else {
-                    box.addEventListener('mouseover', colorPickerBackground);
-                }
-            })
+            box.addEventListener('mouseover', colorPickerBackground);
         })
         document.getElementById('color-picker').onchange = function () {
             colorPicker = this.value
             boxes.forEach(box => {
                 box.removeEventListener('click', eraseBackground);
                 box.removeEventListener('mouseover', eraseBackground);
-
                 box.removeEventListener('click', blackBackground);
                 box.removeEventListener('mouseover', blackBackground);
-
                 box.removeEventListener('click', rainbowBackground);
                 box.removeEventListener('mouseover', rainbowBackground);
-
                 box.removeEventListener('click', colorPickerBackground);
 
-                widthMatch.addEventListener('change', function (mm) {
-                    if (mm.matches) {
-                        box.addEventListener('mouseup', function (event) {
-                            isMouseDown = true;
-                        })
-                        box.addEventListener('mouseup', function (event) {
-                            isMouseDown = false;
-                        })
-                        box.addEventListener('mousedown', function (event) {
-                            if (isMouseDown) {
-                                colorPickerBackground();
-                            }
-                        })
-                    } else {
-                        box.addEventListener('mouseover', colorPickerBackground);
-                    }
-                })
+                box.addEventListener('mouseover', colorPickerBackground);
             })
         }
     }
@@ -364,32 +307,13 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
-
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
-
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
-
             box.removeEventListener('click', rainbowBackground);
 
-            widthMatch.addEventListener('change', function (mm) {
-                if (mm.matches) {
-                    box.addEventListener('mouseup', function (event) {
-                        isMouseDown = true;
-                    })
-                    box.addEventListener('mouseup', function (event) {
-                        isMouseDown = false;
-                    })
-                    box.addEventListener('mousedown', function (event) {
-                        if (isMouseDown) {
-                            rainbowBackground();
-                        }
-                    })
-                } else {
-                    box.addEventListener('mouseover', rainbowBackground);
-                }
-            })
+            box.addEventListener('mouseover', rainbowBackground);
         })
     }
 
@@ -397,13 +321,10 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
-
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
-
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
-
             box.removeEventListener('mouseover', blackBackground);
 
             box.addEventListener('click', blackBackground);
@@ -414,13 +335,10 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
-
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
-
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
-
             box.removeEventListener('mouseover', colorPickerBackground);
 
             box.addEventListener('click', colorPickerBackground);
@@ -430,13 +348,10 @@ function color() {
             boxes.forEach(box => {
                 box.removeEventListener('click', eraseBackground);
                 box.removeEventListener('mouseover', eraseBackground);
-
                 box.removeEventListener('click', blackBackground);
                 box.removeEventListener('mouseover', blackBackground);
-
                 box.removeEventListener('click', rainbowBackground);
                 box.removeEventListener('mouseover', rainbowBackground);
-
                 box.removeEventListener('mouseover', colorPickerBackground);
 
                 box.addEventListener('click', colorPickerBackground);
@@ -448,13 +363,10 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', eraseBackground);
             box.removeEventListener('mouseover', eraseBackground);
-
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
-
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
-
             box.removeEventListener('mouseover', rainbowBackground);
 
             box.addEventListener('click', rainbowBackground);
@@ -465,45 +377,23 @@ function color() {
         boxes.forEach(box => {
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
-
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
-
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
-
             box.removeEventListener('click', eraseBackground);
 
-            widthMatch.addEventListener('change', function (mm) {
-                if (mm.matches) {
-                    box.addEventListener('mouseup', function (event) {
-                        isMouseDown = true;
-                    })
-                    box.addEventListener('mouseup', function (event) {
-                        isMouseDown = false;
-                    })
-                    box.addEventListener('mousedown', function (event) {
-                        if (isMouseDown) {
-                            eraseBackground();
-                        }
-                    })
-                } else {
-                    box.addEventListener('mouseover', eraseBackground);
-                }
-            })
+            box.addEventListener('mouseover', eraseBackground);
         })
     }
     if (activeEraseBtn === true && activeDrawBtn === true) {
         boxes.forEach(box => {
             box.removeEventListener('click', blackBackground);
             box.removeEventListener('mouseover', blackBackground);
-
             box.removeEventListener('click', colorPickerBackground);
             box.removeEventListener('mouseover', colorPickerBackground);
-
             box.removeEventListener('click', rainbowBackground);
             box.removeEventListener('mouseover', rainbowBackground);
-
             box.removeEventListener('mouseover', eraseBackground);
 
             box.addEventListener('click', eraseBackground);
