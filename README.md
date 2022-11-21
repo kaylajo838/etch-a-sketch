@@ -1,17 +1,33 @@
 # Etch-a-Sketch
-Etch-a sketch coloring created with HTML, CSS, and JavaScript.
+Etch-a sketch coloring created with HTML, CSS, and JavaScript. This is a web game that allows multiple drawing modes, colors, and grid sizes, all created with JavaScript.
 
-Click here to see a live demo of my page:
-[Live Demo](https://kaylajo838.github.io/etch-a-sketch/)
+## Live Demo
+Preview: https://kaylajo838.github.io/etch-a-sketch/
 
-This project was a huge project for me to learn JavaScript better.
+## How to Use
+Run your mouse anywhere inside the grid to start drawing. The pen will color the squares as it follows your cursor. The default pen and grid settings can be changed using the controls on the left, as well as drawing mode, color options, and a toggle for lines on or off.
 
-I had to do constant research to be able to implement the functions and code into what I wanted done on my page.
+## Features
+- Draw with custom pen color
+- Draw with random pen color (randomly generated color for each square)
+- Draw with black pen
+- Erase
+- Clear grid
+- Turn grid lines on/off
+- Change grid dimensions
+- Reset current grid, or reset to default
 
-One of my biggest challenges I faced was how to properly add and remove event listeners to certain button onclick functions, and how to have my page identify what buttons were clicked. Along with that, the other challenges were having to get certain buttons to work together to perform certain functions together. 
+## Skills Learned
+- Creating and inserting elements using the DOM (instead of manually through HTML)
+- Making a bunch of divs appear as a grid
+- Connecting HTML inputs and data to my JavaScript code
+- Using a combination of DOM events and the event object to create a click-and-hold effect
+- Allowing only one feature/mode to be selected at a time
+- Using event listeners to make page responsive
 
-I also struggled with making my grid with boxes, and how to be able to modify the size with input from the slider value. 
+## Languages / Technologies
+- HTML/CSS/JavaScript
+- VS Code
+- Linux terminal
+- Git and Github
 
-In the end, I was able to implement everything I wanted my page to do. I was also able to modify the look of my page at different screen sizes.
-
-I will be able to implement so much of the JavaScript I learned with this project into any other project I make in the future.
